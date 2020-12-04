@@ -16,7 +16,7 @@ public class ResumeButton extends Actor
     {
         if (Greenfoot.mouseClicked(this))
         {    
-           Greenfoot.setWorld(new TutorialLevel());
+           Greenfoot.setWorld(new Level1());
         }   
     }
 }

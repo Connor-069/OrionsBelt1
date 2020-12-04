@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Enemy1 here.
+ * Write a description of class Harpy here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Harpy extends Actor
+public class Harpy extends Enemies
 {
     public void act()
     {
@@ -16,7 +16,7 @@ public class Harpy extends Actor
     
     public void movement()
     {
-        move(3);
+        move(2);
         if (getWorld().getObjects(Orion.class).isEmpty()) return; 
         Actor orion = (Actor)getWorld().getObjects(Orion.class).get(0); // gets reference to Orion
         turnTowards(orion.getX(), orion.getY()); // turn toward Orion
@@ -39,3 +39,4 @@ public class Harpy extends Actor
         Greenfoot.setWorld(gameOver);
     }
 }
+

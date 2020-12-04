@@ -12,8 +12,9 @@ public class Orion extends Actor
     int ySpeed = 0, xSpeed = 0; // the initial vertical and horizontal speeds
     boolean aboutFace; // the direction (left or right) the actor is facing
     boolean onGround; // the state of the actor being set on an object or not
-    //private int firingDelay = 100;
-    
+    private int firingDelay = 100;
+    private boolean hasKey = false;
+
     /** 
      * Checks for changes in direction and moves the main actor.
      */
@@ -22,8 +23,8 @@ public class Orion extends Actor
         getDirection();
         move();
         pauseGame();
-    }
-    
+    }    
+
     /**
      * Moves the actor with appropriate image.  Checks for obstacles and adjusts
      * the position of the actor accordingly.
@@ -39,7 +40,7 @@ public class Orion extends Actor
             getImage().mirrorHorizontally();
             aboutFace = !aboutFace;
         }
-        
+
         // check for obstacles
         onGround = false; // initialize value
         // check below the actor
@@ -73,10 +74,10 @@ public class Orion extends Actor
             if (aboutFace) bullet.turn(180);
             getWorld().addObject(bullet, getX(), getY());
             bullet.move(32);
-            
+
         }
     }
-    
+
     /**
      * Determines any changes in horizontal and vertical speeds for the actor.
      */
@@ -91,11 +92,12 @@ public class Orion extends Actor
             ySpeed -= jSpeed; // add jump speed
         }
     }
+
     public void pauseGame()
     {
         if (Greenfoot.isKeyDown("p"))
             Greenfoot.setWorld(new PauseMenu());
+
     }
-    
     
 }

@@ -6,14 +6,36 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Boar extends Actor
+public class Boar extends Enemies
 {
-    /**
-     * Act - do whatever the Boar wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    public void act()
     {
-        // Add your action code here.
-    }    
+        movement();
+        attack();
+    }
+    
+    public void movement()
+    {
+        move(4);
+        if (getWorld().getObjects(Orion.class).isEmpty()) return; 
+        Actor orion = (Actor)getWorld().getObjects(Orion.class).get(0); // gets reference to Orion
+        turnTowards(orion.getX(), orion.getY()); // turn toward Orion
+    }
+    
+    public void attack()
+    {
+        Actor Orion = getOneIntersectingObject(Orion.class);
+        if (Orion != null)
+        {
+            World world = getWorld();
+            world.removeObject(Orion);
+            gameOver();
+        }
+    }
+    
+    public void gameOver()
+    {
+        World gameOver = new gameOver();
+        Greenfoot.setWorld(gameOver);
+    }
 }

@@ -8,12 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Door extends Actor
 {
-    /**
-     * Act - do whatever the Door wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    
+    public void act()
     {
-        // Add your action code here.
-    }    
+        if (isTouching(Orion.class) && getWorld().getObjects(Key.class).isEmpty())
+        {
+            Greenfoot.setWorld(new Level2());
+        }
+        else if (isTouching(Orion.class) && getWorld().getObjects(Key2.class).isEmpty())
+        {
+            Greenfoot.setWorld(new Level3());
+        }   
+    }
 }

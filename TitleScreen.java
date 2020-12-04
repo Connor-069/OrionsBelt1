@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-    GreenfootSound backgroundMusic = new GreenfootSound("OP.wav");
 
     /**
      * Constructor for objects of class TitleScreen.
@@ -16,10 +15,10 @@ public class TitleScreen extends World
      */
     public TitleScreen()
     {    
-        super(1700, 900, 1);
-        backgroundMusic.playLoop();
-        prepare();
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(1700, 900, 1); 
 
+        prepare();
     }
 
     /**
@@ -30,21 +29,5 @@ public class TitleScreen extends World
     {
         StartButton startButton = new StartButton();
         addObject(startButton,907,562);
-
-    }
-
-    private boolean toLevel1()
-    {
-        var World world = getWorld(tutorialLevel);
-        if (world.getObjects(StartButton.class).isEmpty())
-        {
-            backgroundMusic.stop();
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }
-

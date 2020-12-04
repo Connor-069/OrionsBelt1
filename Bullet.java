@@ -19,8 +19,18 @@ public class Bullet extends Actor
     {
         move(5);
         harpyHit();
+        boarHit();
     }
-   
+    public void boarHit()
+    {
+        Actor Boar = getOneIntersectingObject(Boar.class);
+        
+        if(Boar != null)
+        {  
+            getWorld().removeObject(Boar);
+            getWorld().removeObject(this);
+        }
+    }
     public void harpyHit()
     {
         Actor Harpy = getOneIntersectingObject(Harpy.class);
@@ -29,6 +39,7 @@ public class Bullet extends Actor
         {
             getWorld().removeObject(Harpy);
             getWorld().removeObject(this);
+            Greenfoot.playSound("HarpyDeath.wav");
         }
     }
 }

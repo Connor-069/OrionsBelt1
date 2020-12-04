@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PauseMenu extends World
 {
-    GreenfootSound backgroundMusic = new GreenfootSound("PauseMusic.wav");
+
     /**
      * Constructor for objects of class PauseMenu.
      * 
@@ -17,10 +17,7 @@ public class PauseMenu extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1700, 900, 1); 
-        backgroundMusic.playLoop();
         prepare();
-        stopped();
-        started();
     }
 
     /**
@@ -33,15 +30,5 @@ public class PauseMenu extends World
         addObject(quitButton,1089,667);
         ResumeButton resumeButton = new ResumeButton();
         addObject(quitButton,1089,400);
-    }
-    
-    public void stopped()
-    {
-        backgroundMusic.pause();
-    }
-    
-    public void started()
-    {
-        backgroundMusic.playLoop();
     }
 }
